@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Proyectos</h2>
+    <ul>
+        <!--la variable proyectos tiene las propiedades que se le dieron a la varibale project usada en el metodo getProjects-->
+        <li *ngFor="let proyectos of project" class="project">
+        <!--esto es para convertir la vista de proyectos en link para ir a los detalles completos-->    
+        <a [routerLink]="[ '/detail', proyectos._id ]">
+            <div class="image">
+                <!--poner img desde el backend en el frontend-->
+                <img src="{{url+'get-image/'+proyectos.image}}" *ngIf="proyectos.image"/> 
+            </div>  
+            <h3>{{proyectos.name}}</h3>
+            <p>{{proyectos.category}}</p>
+        </a>   
+        </li>
+    </ul>
+</div>

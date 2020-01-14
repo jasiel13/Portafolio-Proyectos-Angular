@@ -1,0 +1,32 @@
+<!--utilizamos el ngif para que no cargue nada hasta que se realice la peticion ya que si no se pone
+muestra un error que la propiedad name es undefined por que esta vacia hasta despues de la peticion-->
+<div *ngIf="project" class="container">
+
+    <div class="image">
+    <!--poner img desde el backend en el frontend-->
+    <img src="{{url+'get-image/'+project.image}}" *ngIf="project.image"/> 
+    </div> 
+
+    <div class="data"> 
+        <h1>{{project.name}}</h1>
+        <h3>{{project.description}}</h3>
+        <p>{{project.category}}</p>
+        <p>{{project.langs}}</p>
+      <br>
+        <!--se puso un ngif para los botones de confirmar borrado por default en false para que se muestren estos dos primeros-->
+        <p *ngIf="confirm==false">
+            <a [routerLink]="[ '/edit', project._id]" class="button-edit">Editar</a>
+            <!--llamamos al evento setconfirm para ejecutarlo dando clic y poner el ngif en true y mostrar los  botones de abajo-->
+            <a (click)="setConfirm(true)" class="button-delete">Borrar</a>
+        </p>
+        <p *ngIf="confirm==true">
+            <span class="confirm">¿Estas seguro de borrar este proyecto?</span>
+            <br>
+             <!--llamamos al evento deleteProjects para ejecutarlo dando clic-->
+             <a (click)="deleteProjects(project._id)" class="button-delete2">Borrar</a>
+            <a (click)="setConfirm(false)" class="button-cancelar">Cancelar</a>           
+        </p>
+
+    </div>
+</div>
+

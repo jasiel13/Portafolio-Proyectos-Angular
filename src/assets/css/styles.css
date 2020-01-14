@@ -1,0 +1,367 @@
+/*importar fuentes personalizadas*/
+@font-face{
+    font-family:"yanone";
+    src:url("fonts/yanone.ttf");
+}
+@font-face{
+    font-family:"finger";
+    src: url("fonts/finger.ttf");
+}
+
+
+/*estilos globales*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{ 
+    font-family: "yanone", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+
+    /* Ubicación de la imagen */    
+    background-image: url(../css/img/galaxy.jpg);    
+    /* Para dejar la imagen de fondo centrada, vertical y horizontalmente */    
+    background-position: center center;    
+    /* Para que la imagen de fondo no se repita */    
+    background-repeat: no-repeat;    
+    /* La imagen se fija en la ventana de visualización para que la altura de la imagen no supere a la del contenido */
+    background-attachment: fixed;    
+    /* La imagen de fondo se reescala automáticamente con el cambio del ancho de ventana del navegador */
+    background-size: cover;    
+    /* Se muestra un color de fondo mientras se está cargando la imagen    
+    de fondo o si hay problemas para cargarla */    
+    background-color: #FA8072;      
+}
+
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+/*codigo para el menu*/
+header{
+    display: block;
+    width: 100%;
+    height: 88px;
+    position: fixed;
+    text-transform: uppercase;
+    background-color: #C884D9;
+    z-index: 1;
+}
+
+header ul{
+    display: block;
+    width: 40%;
+    height: inherit;
+    margin: 0px auto;
+    margin-top: -4px;
+}
+
+header ul li {
+    display:inline-block;
+    margin: 0px auto;
+    text-align: center;
+    line-height: 88px;
+}
+
+header a{
+    display: block;
+    padding-right: 20px;
+    padding-left: 20px;
+    height: inherit;
+    text-decoration: none;
+    color: white;
+    transition: all 300ms;
+}
+
+header a:hover,.actived{
+    background-color:#812878;
+}
+
+/*codigo para el logo*/
+#logo{
+    font-family:"finger";
+    font-size: 30px;
+}
+
+#logo a{
+    transition: color 500ms, transform 500ms;
+}
+
+#logo a:hover{
+     background: transparent;
+     color: black;
+     transform: scale(1.50,1.50);
+}
+
+/*codigo para el contenedor principal*/
+#content{
+    min-height: 600px;
+    height: auto;
+    width: 75%;
+    margin: 0px auto;
+    box-shadow: 0px 0px 40px black;
+    border-left:1px solid #b7b7b7;
+    background: rgba(255, 255, 255, 0.7);
+    padding-top: 120px;
+}
+
+/*codigo para el footer*/
+footer{   
+        color: white;
+        height: 47px;
+        background: rgba(51,51,51,0.70);
+        margin: 0px auto;
+        width: 75%;          
+        line-height: 47px;  
+        text-align: center;       
+    }
+
+    /*codigo para la pagina about*/
+    #title{
+        width: 70%;
+        margin: 0px auto;
+        text-align: center;
+        margin-top:20px;
+        margin-bottom:70px;
+    }
+
+    #title h1{
+        font-family: "finger";
+        font-size: 60px;
+        border-bottom: 1px solid rgb(126, 113, 113);
+        padding-bottom: 5px;       
+    }
+
+    #title h2{
+        font-size: 25px;
+        color: gray;
+        margin-top:5px;
+        margin-bottom: 5px;
+    }
+
+    article.about{
+        width: 70%;
+        margin: 0px auto;
+        margin-bottom: 20px;
+        font-size: 23px;
+    }
+
+    .about h2{
+        border-bottom: 1px solid rgb(126, 113, 113);
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    .about p{
+        padding-top: 20px;
+        padding-bottom: 30px;
+        text-align: justify;
+    }
+
+    /*estilos para la seccion del formulario*/
+    .container{
+        padding: 50px;
+        padding-top: 10px;
+    }
+    
+    /*estilos para los detalles de los proyectos inicio*/
+    .container .image{
+        float:left;
+        width: 47%;
+    }
+
+    .container .image img{
+        width: 100%;
+    }
+
+    .container .data{
+        float: left;
+        width: 48%;
+        margin-left: 30px;
+    }
+   /*estilos para los detalles de los proyectos cierre*/
+   
+    .container h2{
+        display: block;
+        border-bottom: 1px solid rgb(126, 113, 113);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    form{
+        width: 80%;
+    }
+
+    form label{
+        display: block;
+        width: 100%;
+        margin-top:10px;
+        padding-bottom:5px;
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="email"],
+    form textarea{
+        width:40%;
+        padding:5px;
+    }
+    form button,
+    form input[type="submit"],
+    .button-edit,
+    .button-delete,
+    .button-cancelar,
+    .button-delete2{
+        display: block;
+        font-size: 15px;
+        padding: 10px;
+        margin-top:15px;
+        color: white;
+        background:#812878;
+        border: 1px solid black;
+        box-shadow: 0px 0px 5px black;
+        cursor: pointer;
+    }
+
+    form button:hover,
+    form input[type="submit"]:hover{  
+        background:rgba(129, 40, 120, 0.8);
+        border: 1px solid black;
+        box-shadow: 0px 0px 5px black;      
+    }
+
+    form input[disabled]{
+        opacity:0.4;
+        cursor:not-allowed;
+    }
+
+    .form-error{
+        padding: 3px;
+        background-color: #812878;
+        color: white;
+        font-size: 18px;
+        margin-left: 8px;
+        border-radius: 10px;
+    }
+
+    /*mensajes de error y satisfactorio al guardar un nuevo proyecto*/
+    .message{
+        width: 45%;
+        padding: 5px;        
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .success{
+        background:#239B56;
+        color: white;
+        border:2px solid #145A32;
+    }
+
+    .message a{
+        color: white;        
+        text-decoration:none;
+        font-weight: bold;
+    }
+    
+    .failed{
+        background:#C0392B;
+        color: white;
+        border:2px solid #641E16;
+    }
+    
+    /*codigo para maquetar la vistas de los proyectos*/
+    .project{
+        list-style: none;
+        display: block;
+        float: left;
+        width: 28%;
+        text-align: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 30px;
+    }
+    
+    .project .image{
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    .project img{
+        width:100%;
+        height:100%;
+    }
+
+    .project a{
+        text-decoration: none;
+        color: black;
+    }
+
+    .button-edit,
+    .button-delete,
+    .button-cancelar,
+    .button-delete2{
+        width: 20%;
+        float:left;
+        margin-right: 10px;
+        text-decoration: none;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .button-delete{
+        background:#C0392B;
+        color: white;
+        border:2px solid #641E16;
+    }
+    
+    .button-edit{
+        background:#239B56;
+        color: white;
+        border:2px solid #145A32;
+    }
+
+    /*codigo para el letrero de confirmacion*/
+    .confirm{
+        width: 45%;
+        padding: 5px;        
+        text-align: center;
+        border-radius: 10px;        
+
+        background:#D4AC0D;
+        color: white;
+        border:2px solid #7D6608;
+
+        margin-top: 20px;
+        font-size: 18px;
+    }
+
+    /*codigo de botones de confirmacion*/
+    
+    .button-delete2{
+        background:#C0392B;
+        color: white;
+        border:2px solid #641E16;
+    }
+    
+    .button-cancelar{
+        background:#D4AC0D ;
+        color: white;
+        border:2px solid #7D6608;
+    }
+
+    /*CODIGO PARA MODIFICAR PROPIEDADES DEL SLIDER*/
+    .bx-wrapper,.bx-viewport{
+        height: 250px !important;
+    }    
+    .bx-wrapper .bx-caption span{
+        text-align: center !important;
+    }
+    .bxslider img{
+        height: 250px;
+        z-index:2; 
+        width:100%;
+    }

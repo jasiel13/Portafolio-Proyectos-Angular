@@ -1,0 +1,35 @@
+     
+<div class="container">
+  <h1>Contacto</h1>
+
+  <!--uso de viewchild se ponen asi #nombre-->
+  <div id="texto" #textos>
+    <p appResaltado>Hola soy jasiel estoy probando los viewchild</p>
+  </div>  
+
+  <!--1-creamos un input donde colocaremos la anchura que se le pasara a las propiedades del slider-->
+  <input type="number" [(ngModel)]="widthSlider"/>
+
+  <!--creamos botones para llenar el slider con anchura y luego vaciarlo para ponerle otra anchura diferente-->
+  <button (click)="cargarSlider()">Cargar slider</button>
+  <button (click)="resetSlider()">Resetear slider</button>
+
+  <!--ponemos un ngif para que las propiedades del slider solo se muestren si existen si contienen algo-->
+    <div *ngIf="anchuraToSlider">    
+
+    <!--1-agregamos el componente hijo que viene de la pagina slider.component.ts y el componente padre es contacto.component.ts
+    2-dentro del componente hijo haremos una propiedad (anchura) correspondiente al padre para pasarla al componente hijo
+    3-usar la propiedad del componente hijo en la directiva del componente hijo que esta en el componente padre 
+    y creamos otro metodo (getautor)-->
+    <slider [anchura]="anchuraToSlider"
+            [etiquetas]="captions" 
+            (conseguirAutor)="getAutor($event)">        
+    </slider>
+  </div>
+
+  <!--los datos los mostramos desde el componente padre contact pero los enviamos del componente hijo slider-->
+  <div *ngIf="autor">
+    {{autor.nombre+"--"+autor.website}}
+  </div> 
+</div>
+

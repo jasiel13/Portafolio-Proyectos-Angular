@@ -1,0 +1,61 @@
+<!--creamos el formulario-->
+<div class="container" *ngIf="project">
+    <h2>{{title}}</h2>
+
+    <!--mensaje de que el proyecto se creo correctamente-->
+    <div class="message success" *ngIf="status=='success'">        
+        El proyecto se ha creado correctamente, puedes <a [routerLink]="[ '/detail', proyecto_save._id ]">¡verlo aquí!</a>
+    </div>
+    <div class="message failed" *ngIf="status=='failed'">
+        ¡¡El proyecto no se ha creado correctamente!!
+    </div>
+
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="project.name" required/>
+            <span class="form-error" *ngIf="name.touched && !name.valid">
+                *El campo nombre es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="description">Descripción</label>
+            <textarea name="description" #description="ngModel" [(ngModel)]="project.description" required></textarea>
+            <span class="form-error" *ngIf="description.touched && !description.valid">
+                *El campo descripción es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="category">Categoría</label>
+            <input type="text" name="category" #category="ngModel" [(ngModel)]="project.category" required/>
+            <span class="form-error" *ngIf="category.touched && !category.valid">
+                *El campo categoría es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="year">Año de Lanzamiento</label>
+            <input type="number" name="year" #year="ngModel" [(ngModel)]="project.year"/>
+        </p>
+        <p>
+            <label for="langs">Lenguajes Utilizados</label>
+            <input type="text" name="langs" #langs="ngModel" [(ngModel)]="project.langs" required/>
+            <span class="form-error" *ngIf="langs.touched && !langs.valid">
+                *El campo lenguajes es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="image">Imagen del Proyecto</label>
+
+            <!--para mostrar la imagen en el formulario de editar ya que no semuestra sin este codigo-->
+            <span class="image" style="float: none;">
+            <!--poner img desde el backend en el frontend-->
+            <img src="{{url+'get-image/'+project.image}}" *ngIf="project.image" style="width: 100px;"/> 
+            </span> 
+            <br>
+            <!--en angular hay un evento que se llama change el cual persive los cambios que se han dado
+            en un input y activa un metodo el cual colocas en el evento-->
+            <input type="file" name="image" placeholder="Subir imagen" (change)="fileChangeEvent($event)"/>
+        </p>
+        <input type="submit" value="Enviar" [disabled]="!projectForm.form.valid"/>
+    </form>
+</div>
